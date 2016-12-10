@@ -1,0 +1,1 @@
+c:\users\mvukosav\documents\visual studio 2015\Projects\CashRegister\CashRegister\bin\Debug\CashRegister.exe.config
