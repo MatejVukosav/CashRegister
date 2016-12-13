@@ -3,22 +3,27 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Newtonsoft.Json;
 
 namespace CashRegister
 {
-    abstract class Article
+    public abstract class Article
     {
-        protected int id = Int32.Parse(System.Guid.NewGuid().ToString());
+        public int id { get; set; }
+        public abstract int type { get; }
         public String name { get; set; }
         public float price { get; set; }
         public PDV pdv { get; set; }
 
-        public int getId()
-        {
-            return id;
-        }
-
         public abstract float getValue();
         public abstract float getCalculatedPDV();
+
+        public abstract int getTypeId();
+
+        public abstract void save();
+        public abstract void print();
+
+        public abstract string getFileName(int id);
+
     }
 }

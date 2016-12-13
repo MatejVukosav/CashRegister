@@ -8,10 +8,17 @@ namespace CashRegister
 {
     class CroatianPDV : PDV
     {
+
         private static CroatianPDV instance;
         private CroatianPDV()
         {
 
+        }
+
+        public override int type {
+            get {
+                return 1;
+            }
         }
 
         public static CroatianPDV getInstance()
@@ -22,6 +29,11 @@ namespace CashRegister
 
             }
             return instance;
+        }
+
+        public override int getId()
+        {
+            return 1;
         }
 
         public override float getValue()

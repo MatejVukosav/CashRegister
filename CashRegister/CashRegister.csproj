@@ -33,6 +33,10 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="Newtonsoft.Json, Version=9.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <HintPath>..\packages\Newtonsoft.Json.9.0.1\lib\net45\Newtonsoft.Json.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
     <Reference Include="System.Xml.Linq" />
@@ -43,11 +47,29 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Administrator.cs" />
+    <Compile Include="Article.cs" />
+    <Compile Include="ArticlePerItem.cs" />
+    <Compile Include="ArticlePerKg.cs" />
+    <Compile Include="ArticleCreationConverter.cs" />
+    <Compile Include="Bill.cs" />
+    <Compile Include="Cash.cs" />
+    <Compile Include="Cashier.cs" />
+    <Compile Include="CroatianPDV.cs" />
+    <Compile Include="ModelUser.cs" />
+    <Compile Include="PDV.cs" />
+    <Compile Include="PDVCreationConverter.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="User.cs" />
+    <Compile Include="UserInterface.cs" />
+    <Compile Include="UserPermission.cs" />
+    <Compile Include="UserPossibilities.cs" />
+    <Compile Include="Util.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
+    <None Include="packages.config" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

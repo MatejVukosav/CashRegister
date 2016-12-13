@@ -9,6 +9,7 @@ namespace CashRegister
     interface UserInterface
     {
 
-        void printPossibilites();
+        void printExtraPossibilites();
+        void makeAction(int action);
     }
 }

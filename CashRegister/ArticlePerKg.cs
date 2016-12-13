@@ -8,18 +8,19 @@ using Newtonsoft.Json;
 
 namespace CashRegister
 {
-    class ArticlePerItem : Article
+    class ArticlePerKg : Article
     {
-        new public float quantity { get; set; } = 1;
+        public float ammount { get; set; } = 1;
+
         public override int type {
             get {
-                return 1;
+                return 2;
             }
         }
+        public ArticlePerKg() { }
 
-        public ArticlePerItem() { }
 
-        public ArticlePerItem(int id, String name, float price, PDV pdv)
+        public ArticlePerKg(int id, String name, float price, PDV pdv)
         {
             this.id = id;
             this.name = name;
@@ -27,19 +28,18 @@ namespace CashRegister
             this.pdv = pdv;
         }
 
+
         public override float getCalculatedPDV()
         {
             return getValue() * pdv.getValue();
         }
-
         public override float getValue()
         {
-            return quantity * price;
+            return ammount * price;
         }
 
         public override void save()
         {
-
             List<Article> articles = Util.getArticles();
             if (articles == null)
             {
@@ -57,12 +57,12 @@ namespace CashRegister
 
         public override int getTypeId()
         {
-            return 1;
+            return 2;
         }
 
         public override string getFileName(int id)
         {
-            return "articlePerItem" + id + ".json";
+            return "articlePerKg" + id + ".json";
         }
     }
 }

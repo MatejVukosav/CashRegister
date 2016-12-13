@@ -1,21 +1,24 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Newtonsoft.Json;
 
 namespace CashRegister
 {
     class Bill
     {
-
-        private List<Article> articles;
-        private DateTime date;
+        public int id;
+        public List<Article> articles;
+        public DateTime date;
 
         public Bill()
         {
+            id = Util.getGlobalIdCounter();
             articles = new List<Article>();
-            date = new DateTime();
+            date = DateTime.Now;
         }
 
         public float getSumPrice()
@@ -45,7 +48,8 @@ namespace CashRegister
 
         public void printBill()
         {
-
+            String json = JsonConvert.SerializeObject(this);
+            Console.WriteLine(json);
         }
 
         public void addArticle(Article article)
@@ -57,7 +61,7 @@ namespace CashRegister
         {
             foreach (Article article in articles)
             {
-                if (article.getId() == id)
+                if (article.id == id)
                 {
                     articles.Remove(article);
                     break;
@@ -69,6 +73,22 @@ namespace CashRegister
         public int getArticlesCount()
         {
             return articles.Count();
+        }
+        public void save()
+        {
+            List<Bill> bills = Util.getBills();
+            if (bills == null)
+            {
+                bills = new List<Bill>();
+            }
+            bills.Add(this);
+
+            Util.saveBills(bills);
+        }
+
+        public static string getFileName(int id)
+        {
+            return @"c:\bill" + id + ".json";
         }
 
     }

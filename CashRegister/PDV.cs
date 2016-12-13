@@ -6,10 +6,12 @@ using System.Threading.Tasks;
 
 namespace CashRegister
 {
-    abstract class PDV
+    public abstract class PDV
     {
         private float value;
+        public abstract int type { get; }
 
         public abstract float getValue();
+        public abstract int getId();
     }
 }

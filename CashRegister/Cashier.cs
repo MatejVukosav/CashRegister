@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace CashRegister
 {
-    class Cashier : AbstractUser, UserInterface
+    class Cashier : User
     {
         public Cashier(String username, String password)
         {
@@ -16,10 +16,16 @@ namespace CashRegister
 
         }
 
-        public override void printPossibilites()
+        public override void printExtraPossibilites()
         {
-            Console.WriteLine("Admin mogucnosti");
+            Console.WriteLine("Cashier possibilities");
 
+        }
+
+        public override void makeAction(int action)
+        {
+
+            base.makeAction(action);
         }
     }
 }
